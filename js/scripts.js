@@ -16,7 +16,6 @@ function Ticket(age, time, threeD, discounts) {
 
 Ticket.prototype.price = function () {
   var cost = 12;
-  debugger
   if (this.time<1700){
     cost-=3;
   }
@@ -53,19 +52,17 @@ var time=1700;
 
 $(document).ready(function(){
   movieArray.forEach(function (element) {
-    $(".movie-schedule").append('<h2>' + element.name + '</h2>' + '<ul class = "movie-times ' + element.className() + '">' + '</ul>')
+    $(".movie-schedule").append('<div class="row"><h2>' + element.name + '</h2>' + '<ul class = "movie-times ' + element.className() + '">' + '</ul></div>')
     if (element.threeD) {
       $(".movie-schedule h2").append("<span class = 'threed'> 3D</span>");
-      element.time.forEach(function (show) {
-        $(".movie-schedule ul." + element.className() ).append('<li><span class="show3d">' + show + '</span></li>');
-      });
-    } else {
-      element.time.forEach(function (show) {
-        $(".movie-schedule ul." + element.className() ).append('<li><span class="show">' + show + '</span></li>');
-      });
     }
-
-  })
+    element.time.forEach(function (show) {
+      $(".movie-schedule ul." + element.className() ).append('<li><span class="showtime">' + show + '</span></li>');
+      if (element.threeD) {
+        $(".showtime").addClass("3D");
+      }
+    });
+  });
 
   $("#new-ticket").submit(function(event){
     event.preventDefault();
@@ -73,23 +70,18 @@ $(document).ready(function(){
     var age = parseInt($("#age").val());
     var discounts=[$("#military:checked").val(),$("#student:checked").val()]
     var newTicket=new Ticket(age, time, threeD, discounts);
-    $('#output').text(newTicket.price());
+    $('#output').html("<p class='receipt'>Thank you for your purchase.  Your total cost is $" + newTicket.price() + "</p>");
 
   });
 
-  $(".show3d").click(function(){
-    $(".show").removeClass("activeshow")
-    $(".show3d").removeClass("activeshow")
+  $(".showtime").click(function(){
+    $(".showtime").removeClass("activeshow")
     $(this).addClass("activeshow")
-    threeD=true;
     time = this.innerHTML;
-  });
-  $(".show").click(function(){
-    $(".show").removeClass("activeshow")
-    $(".show3d").removeClass("activeshow")
-    $(this).addClass("activeshow")
-    threeD=false;
-    time = this.innerHTML;
-
+    if ($(this).hasClass("3D")){
+      threeD=true;
+    } else {
+      threeD=false;
+    }
   });
 });

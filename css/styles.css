@@ -1,18 +1,43 @@
 /*This file is for your custom css.  All yours*/
 
-#show-contact {
-  display: none;
-}
-
-.show, .show3d {
+.showtime {
   cursor: pointer;
   color: #0088cc;
 }
 
-.show:hover, .show3d:hover {
+.showtime:hover {
   text-decoration: underline;
 }
 
 .activeshow {
   background-color: yellow;
+}
+
+.movie-times {
+  vertical-align: center;
+  padding-left: 1em;
+}
+.movie-times li {
+  list-style-type: none;
+  display: inline;
+  padding-right: 1em;
+  font-size: 2em;
+}
+
+h2, ul {
+  display: inline;
+}
+
+.row{
+  padding-bottom: 1em;
+}
+
+ul.instructions li {
+  list-style-type: none;
+}
+
+.receipt {
+  color: #f00;
+  font-size: x-large;
+  text-decoration: underline;
 }

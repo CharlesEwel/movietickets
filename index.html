@@ -33,27 +33,51 @@
       <header>
         <h1>Select a time and movie</h1>
       </header>
-      <form id="new-ticket">
-        <div class="movie-schedule">
-
-        </div>
-        <div class="form-group">
-          <label for="age">Enter your age:</label>
-          <input type="number" class="form-control" id="age">
-        </div>
-        <div class="form-group">
-          <div class="checkbox">
-            <label><input type="checkbox" id="student" value="student">Student</label>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="movie-schedule">
           </div>
-          <div class="checkbox">
-            <label><input type="checkbox" id="military" value="military">Military</label>
+          <form id="new-ticket">
+            <div class="form-group">
+              <label for="age">Enter your age:</label>
+              <input type="number" class="form-control" id="age">
+            </div>
+            <div class="form-group">
+              <div class="checkbox">
+                <label><input type="checkbox" id="student" value="student">Student</label>
+              </div>
+              <div class="checkbox">
+                <label><input type="checkbox" id="military" value="military">Military</label>
+              </div>
+            </div>
+            <button type="submit" class="btn">Calculate Price</button>
+          </form>
+        </div>
+        <div class="col-md-6">
+          <div class="instructions">
+            <p class="lead">
+              Ticket prices are calculated using the following rules:
+            </p>
+            <ul class="instructions">
+              <li>Full price ticket: $12</li>
+              <li>Matinee ticket: $9</li>
+              <li>Senior discount (over 62): $2</li>
+              <li>Student discount: $1</li>
+              <li>Military discount: $2</li>
+              <li>3D ticket: $3 extra</li>
+              <li>Children under two are free</li>
+            </ul>
+            <p>
+              Multiple discounts do not apply.
+            </p>
+          </div>
+          <div id="output">
+
           </div>
         </div>
-        <button type="submit" class="btn">Calculate Price</button>
-      </form>
-      <div id="output">
-
       </div>
+
+
       <footer>
         <p>&copy; 2016 Epicodus Pair Project, Inc.</p>
       </footer>
