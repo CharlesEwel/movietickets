@@ -1,1 +1,18 @@
 /*This file is for your custom css.  All yours*/
+
+#show-contact {
+  display: none;
+}
+
+.show, .show3d {
+  cursor: pointer;
+  color: #0088cc;
+}
+
+.show:hover, .show3d:hover {
+  text-decoration: underline;
+}
+
+.activeshow {
+  background-color: yellow;
+}

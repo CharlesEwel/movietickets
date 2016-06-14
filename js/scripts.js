@@ -73,16 +73,21 @@ $(document).ready(function(){
     var age = parseInt($("#age").val());
     var discounts=[$("#military:checked").val(),$("#student:checked").val()]
     var newTicket=new Ticket(age, time, threeD, discounts);
-    debugger;
     $('#output').text(newTicket.price());
 
   });
 
   $(".show3d").click(function(){
+    $(".show").removeClass("activeshow")
+    $(".show3d").removeClass("activeshow")
+    $(this).addClass("activeshow")
     threeD=true;
     time = this.innerHTML;
   });
   $(".show").click(function(){
+    $(".show").removeClass("activeshow")
+    $(".show3d").removeClass("activeshow")
+    $(this).addClass("activeshow")
     threeD=false;
     time = this.innerHTML;
 
